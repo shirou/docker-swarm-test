@@ -26,4 +26,4 @@ test:
   override:
     - go version
     - CGO_ENABLED=0 go build main.go -o ${CIRCLE_ARTIFACTS}/docker-swarm-test
-        pwd: ../.go_workspace/src/${REPO_PATH}
+      pwd: ../.go_workspace/src/${REPO_PATH}
