@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-var wait = time.Duration(100 * time.Millisecond)
+var wait = time.Duration(1 * time.Second)
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	rec := time.Now()
