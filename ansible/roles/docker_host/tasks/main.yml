@@ -1,0 +1,8 @@
+- include: init.yml
+  tags: init
+
+- include: docker.yml
+  tags: docker
+
+- include: sysctl.yml
+  tags: sysctl

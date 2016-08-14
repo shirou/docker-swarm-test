@@ -1,0 +1,9 @@
+- name: provisioning web
+  hosts: web
+  vars_files:
+    - default_vars.yml
+  roles:
+    - role: docker_host
+      tags:
+        - docker_host
+    
