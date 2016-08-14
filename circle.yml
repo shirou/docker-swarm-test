@@ -25,5 +25,5 @@ dependencies:
 test:
   override:
     - go version
-    - make build:
+    - make build_ci:
         pwd: ../.go_workspace/src/${REPO_PATH}
