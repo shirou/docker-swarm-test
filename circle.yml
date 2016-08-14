@@ -26,4 +26,4 @@ test:
   override:
     - go version
     - make build:
-      pwd: ../.go_workspace/src/${REPO_PATH}
+        pwd: ../.go_workspace/src/${REPO_PATH}
