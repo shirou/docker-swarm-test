@@ -12,6 +12,10 @@
     create: yes
     line: "127.0.0.1 {{ inventory_hostname }}"
 
+- name: create common group
+  group:
+    name: "{{ user_name }}"
+
 - name: create common user
   user:
     name: "{{ user_name }}"
@@ -22,7 +26,7 @@
 - name: set sudoers
   template:
     src: sudoers.j2
-    dest: "/etc/sudoers.d/{{ username }}"
+    dest: "/etc/sudoers.d/{{ user_name }}"
     owner: root
     group: root 
     mode: 0440
@@ -31,5 +35,5 @@
   authorized_key:
     user: "{{ user_name }}"
     key: "https://github.com/{{ item }}.keys "
-  with_items: "{{ developer_pub_keys: }}"
+  with_items: "{{ developer_pub_keys }}"
 

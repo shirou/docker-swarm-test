@@ -1,0 +1,26 @@
+- name: install python2
+  hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+    - name: DNS server is wrong on my VPS
+      raw: echo "nameserver 8.8.8.8" > /etc/resolv.conf
+      when: init is defined and init|bool
+    - raw: apt-get update
+      when: init is defined and init|bool
+    - raw: apt-get purge -y python-minimal
+      when: init is defined and init|bool
+    - name: install python2
+      raw: apt-get install -y python2.7
+      when: init is defined and init|bool
+
+- name: provisioning swarm
+  hosts: swarm
+  become: yes
+  vars_files:
+    - default_vars.yml
+  roles:
+    - role: docker_host
+      tags:
+        - docker_host
+    

@@ -1,4 +1,4 @@
-- nmae: purge old-lxc if exists
+- name: purge old-lxc if exists
   apt:
     name: lxc-docker
     state: absent
@@ -32,7 +32,6 @@
 
 - name: Enable docker service
   service:
-  args:
     enabled: yes
     name: docker
     state: started

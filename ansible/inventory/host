@@ -1,6 +1,22 @@
-[web]
-web-1 ansible_host=192.168.1.1
-web-2 ansible_host=192.168.1.1
-web-3 ansible_host=192.168.1.1
+[swarm:vars]
+ansible_python_interpreter=/usr/bin/python2.7
+
+[swarm:children]
+worker
+manager
+
+[worker:vars]
+worker=yes
+
+[worker]
+worker-1 ansible_host=111.111.111.112
+worker-2 ansible_host=111.111.111.113
+worker-3 ansible_host=111.111.111.114
+
+[manager:vars]
+manager=yes
+
+[manager]
+manager-1 ansible_host=111.111.111.111
 
 
